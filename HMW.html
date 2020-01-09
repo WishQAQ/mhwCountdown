@@ -65,7 +65,9 @@
 <script src="countdown.js"></script>
 <script>
   const is_mobi = navigator.userAgent.toLowerCase().match(/(ipod|ipad|iphone|android|coolpad|mmp|smartphone|midp|wap|xoom|symbian|j2me|blackberry|wince)/i) != null;
-  document.getElementById('body').style.background = is_mobi?'url("mobile_background_image.png") center center': 'url("background_image.png") center center'
+  document.getElementById('body').style.background = is_mobi ?
+    'url("mobile_background_image.png") center center no-repeat':
+    'url("background_image.png") center center no-repeat'
   const date1 = new Date(); //开始时间
   const date2=new Date('2020/1/10,01:00:00'); //结束时间
   const date3=date2.getTime()-date1.getTime(); //时间差秒
