@@ -3,39 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>冰原解禁剩余时间</title>
-  <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css">
-  <script src="countdown.js"></script>
 </head>
-<script>
-  const date1 = new Date(); //开始时间
-  const date2=new Date('2020/1/10,01:00:00'); //结束时间
-  const date3=date2.getTime()-date1.getTime(); //时间差秒
-  //计算出相差天数
-  const days = Math.floor(date3 / (24 * 3600 * 1000));
-
-  //计算出小时数
-  const leave1 = date3 % (24 * 3600 * 1000); //计算天数后剩余的毫秒数
-  const hours=Math.floor(leave1/(3600*1000));
-
-  //计算相差分钟数
-  const leave2=leave1%(3600*1000); //计算小时数后剩余的毫秒数
-  let minutes=Math.floor(leave2/(60*1000));
-
-  //计算相差秒数
-  const leave3=leave2%(60*1000); //计算分钟数后剩余的毫秒数
-  let seconds=Math.round(leave3/1000);
-  console.log(" 相差 "+days+"天 "+hours+"小时 "+minutes+" 分钟"+seconds+" 秒")
-
-  $(document).ready(function() {
-    const m_ = (hours + (minutes / 60)) * 60;
-    seconds_ = m_ * 60 + seconds;
-  });
-</script>
-<body>
-
+<body id="body">
 <div class="time">
-
   <h1>距离冰原解禁时间还剩余：</h1>
 
   <form role="form">
@@ -90,4 +61,33 @@
   </form>
 </div>
 </body>
+<script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="countdown.js"></script>
+<script>
+  const is_mobi = navigator.userAgent.toLowerCase().match(/(ipod|ipad|iphone|android|coolpad|mmp|smartphone|midp|wap|xoom|symbian|j2me|blackberry|wince)/i) != null;
+  document.getElementById('body').style.background = is_mobi?'url("mobile_background_image.png") center center': 'url("background_image.png") center center'
+  const date1 = new Date(); //开始时间
+  const date2=new Date('2020/1/10,01:00:00'); //结束时间
+  const date3=date2.getTime()-date1.getTime(); //时间差秒
+  //计算出相差天数
+  const days = Math.floor(date3 / (24 * 3600 * 1000));
+
+  //计算出小时数
+  const leave1 = date3 % (24 * 3600 * 1000); //计算天数后剩余的毫秒数
+  const hours=Math.floor(leave1/(3600*1000));
+
+  //计算相差分钟数
+  const leave2=leave1%(3600*1000); //计算小时数后剩余的毫秒数
+  let minutes=Math.floor(leave2/(60*1000));
+
+  //计算相差秒数
+  const leave3=leave2%(60*1000); //计算分钟数后剩余的毫秒数
+  let seconds=Math.round(leave3/1000);
+  console.log(" 相差 "+days+"天 "+hours+"小时 "+minutes+" 分钟"+seconds+" 秒")
+
+  $(document).ready(function() {
+    const m_ = (hours + (minutes / 60)) * 60;
+    seconds_ = m_ * 60 + seconds;
+  });
+</script>
 </html>
