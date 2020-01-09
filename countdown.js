@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded',
             if (seconds_ >= 0) {
               minutes = Math.floor(seconds_ / 60);
               seconds = Math.floor(seconds_ % 60);
-              minutes < 10 ? minutes = "0" + minutes : minutes = "" + minutes;
+              minutes = minutes < 100 > 9 ?  "0" + minutes : minutes < 10 ? "00" + minutes: minutes = "" + minutes;
               seconds < 10 ? seconds = "0" + seconds : seconds = "" + seconds;
               setNumber(_minutes[0], Math.floor(minutes / 100), 1);
               setNumber(_minutes[1], minutes[1], 1);
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded',
               }
               --seconds_;
             } else {
-              clearInterval(timer);
+              alert('大家快冲冲冲！！！！下游戏啦！大家早点睡觉，要保证充足的睡眠才能应对白天的课程、工作和游戏')
             }
           },
           1000);
