@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded',
     function() {
       const _minutes = document.querySelectorAll('.minutes');
       const _seconds = document.querySelectorAll('.seconds');
-      setInterval(function() {
+      const interval = setInterval(function() {
             let minutes;
             let seconds;
             if (seconds_ >= 0) {
@@ -49,6 +49,15 @@ document.addEventListener('DOMContentLoaded',
               }
               --seconds_;
             } else {
+              clearInterval(interval);
+              setNumber(_minutes[0], 0, 1);
+              setNumber(_minutes[1], 0, 1);
+              setNumber(_minutes[2], 0, 1);
+              setNumber(_seconds[0], 0, 1);
+              setNumber(_seconds[1], 0, 1);
+              $(".segment").css("background", "red");
+              $(".separator").css("background", "red");
+              --seconds_;
               alert('大家快冲冲冲！！！！下游戏啦！大家早点睡觉，要保证充足的睡眠才能应对白天的课程、工作和游戏')
             }
           },
