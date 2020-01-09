@@ -44,8 +44,8 @@ document.addEventListener('DOMContentLoaded',
                 $(".segment").css("background", "red");
                 $(".separator").css("background", "red");
               } else {
-                $(".segment").css("background", "#00FF00");
-                $(".separator").css("background", "#00FF00");
+                $(".segment").css("background", "#79e7ff");
+                $(".separator").css("background", "#79e7ff");
               }
               --seconds_;
             } else {

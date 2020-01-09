@@ -41,7 +41,7 @@ body{
 
 .digit .segment.on,.separator {
   opacity: 1;
-  box-shadow: 0 0 30px rgba(0,255,0,.1);
+  box-shadow: 0 0 30px rgba(212,231,255,.1);
   transition: opacity 0s;
   -webkit-transition: opacity 0s;
   -ms-transition: opacity 0s;
