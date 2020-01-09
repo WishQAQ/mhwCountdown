@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>冰原解禁剩余时间</title>
+</head>
+<style rel="stylesheet" type="text/css">
+  *{
+    margin: unset;
+    padding: unset;
+  }
+  .time{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  h1{
+    margin-bottom: 2em;
+    font-size: 3em
+  }
+  span{
+    font-size: 2em
+  }
+</style>
+<body>
+
+<div class="time">
+  <h1>冰原解禁剩余时间：</h1>
+  <span id="Countdown"></span>
+</div>
+
+</body>
+
+<script>
+  function FreshTime() {
+    const endTime = new Date("2020/1/10,01:00:00"); //结束时间
+    const currentTime = new Date(); //当前时间
+    const countdown = parseInt((endTime.getTime() - currentTime.getTime()) / 1000);
+    let d = parseInt(countdown / 3600 / 24);
+    let h = parseInt((countdown / 3600) % 24);
+    let m = parseInt((countdown / 60) % 60);
+    let s = parseInt(countdown % 60);
+    document.getElementById("Countdown").innerHTML = d + "天" + h + "小时" + m + "分" + s + "秒";
+  }
+  FreshTime()
+  let sh;
+  sh = setInterval(FreshTime, 1000);
+</script>
+</html>
