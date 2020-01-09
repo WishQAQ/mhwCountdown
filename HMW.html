@@ -3,50 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <title>冰原解禁剩余时间</title>
+  <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="countdown.js"></script>
 </head>
-<style rel="stylesheet" type="text/css">
-  *{
-    margin: unset;
-    padding: unset;
-  }
-  .time{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  h1{
-    margin-bottom: 2em;
-    font-size: 3em
-  }
-  span{
-    font-size: 2em
-  }
-</style>
+<script>
+  const date1 = new Date(); //开始时间
+  const date2=new Date('2020/1/10,01:00:00'); //结束时间
+  const date3=date2.getTime()-date1.getTime(); //时间差秒
+  //计算出相差天数
+  const days = Math.floor(date3 / (24 * 3600 * 1000));
+
+  //计算出小时数
+  const leave1 = date3 % (24 * 3600 * 1000); //计算天数后剩余的毫秒数
+  const hours=Math.floor(leave1/(3600*1000));
+
+  //计算相差分钟数
+  const leave2=leave1%(3600*1000); //计算小时数后剩余的毫秒数
+  let minutes=Math.floor(leave2/(60*1000));
+
+  //计算相差秒数
+  const leave3=leave2%(60*1000); //计算分钟数后剩余的毫秒数
+  let seconds=Math.round(leave3/1000);
+  console.log(" 相差 "+days+"天 "+hours+"小时 "+minutes+" 分钟"+seconds+" 秒")
+
+  $(document).ready(function() {
+    const m_ = (hours + (minutes / 60)) * 60;
+    seconds_ = m_ * 60 + seconds;
+  });
+</script>
 <body>
 
 <div class="time">
-  <h1>冰原解禁剩余时间：</h1>
-  <span id="Countdown"></span>
+
+  <h1>距离冰原解禁时间还剩余：</h1>
+
+  <form role="form">
+    <div class="time">
+      <div class="digit minutes">
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+      </div>
+      <div class="digit minutes">
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+      </div>
+      <div class="digit minutes">
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+      </div>
+      <div class="separator"></div>
+      <div class="digit seconds">
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+      </div>
+      <div class="digit seconds">
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+        <div class="segment"></div>
+      </div>
+    </div>
+  </form>
 </div>
-
 </body>
-
-<script>
-  function FreshTime() {
-    const endTime = new Date("2020/1/10,01:00:00"); //结束时间
-    const currentTime = new Date(); //当前时间
-    const countdown = parseInt((endTime.getTime() - currentTime.getTime()) / 1000);
-    let d = parseInt(countdown / 3600 / 24);
-    let h = parseInt((countdown / 3600) % 24);
-    let m = parseInt((countdown / 60) % 60);
-    let s = parseInt(countdown % 60);
-    document.getElementById("Countdown").innerHTML = d + "天" + h + "小时" + m + "分" + s + "秒";
-  }
-  FreshTime()
-  let sh;
-  sh = setInterval(FreshTime, 1000);
-</script>
 </html>
