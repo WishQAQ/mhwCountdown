@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded',
             if (seconds_ >= 0) {
               minutes = Math.floor(seconds_ / 60);
               seconds = Math.floor(seconds_ % 60);
-              minutes = minutes < 100 > 9 ?  "0" + minutes : minutes < 10 ? "00" + minutes: minutes = "" + minutes;
+              minutes = minutes < 100 && minutes > 9 ?  "0" + minutes : minutes < 10 ? "00" + minutes: minutes = "" + minutes;
               seconds < 10 ? seconds = "0" + seconds : seconds = "" + seconds;
               setNumber(_minutes[0], Math.floor(minutes / 100), 1);
               setNumber(_minutes[1], minutes[1], 1);
